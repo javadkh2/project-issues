@@ -5,6 +5,7 @@ export const colors = {
   dark: '#252525',
   ultraLight: '#f0f0f0',
   primary: 'tomato',
+  secondary: 'dodgerblue',
   danger: '#ffb2b2',
 }
 

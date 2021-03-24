@@ -1,4 +1,4 @@
-import index, { getResultPageProps } from '../../../components/ResultPage'
+import index, { getResultPageProps } from '../../../components/SearchPage'
 
 export default index
 

@@ -3,18 +3,7 @@ import { colors, size } from '../../config/style'
 
 export const Title = styled.h2`
   margin: 0;
-  margin-bottom: ${size()};
-`
-
-export const Error = styled.p`
-  color: ${colors.primary};
-  margin: 0;
-  flex: 1;
-  text-align: right;
-  em {
-    font-style: normal;
-    font-weight: bold;
-  }
+  margin: ${size(2)} 0;
 `
 
 export const Input = styled.input`
@@ -40,12 +29,6 @@ export const FilterWrapper = styled.div`
   margin-top: ${size()};
   display: flex;
 `
-export const Button = styled.button`
-  background: ${colors.primary};
-  color: ${colors.white};
-  border: none;
-`
-
 const RadioButtonLabel = styled.label`
   display: flex;
   align-items: baseline;
