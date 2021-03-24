@@ -9,8 +9,8 @@ type Props = {
   owner: string
   repository: string
   number: string
-  issue: any
-  error: string
+  issue?: any
+  error?: string
 }
 
 export const IssueDetails = ({
