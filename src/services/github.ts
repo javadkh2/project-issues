@@ -12,3 +12,13 @@ export function getIssues(
     `https://api.github.com/repos/${owner}/${repository}/issues${query}`
   )
 }
+
+export function getIssueItem(
+  owner: string,
+  repository: string,
+  number: number
+): Promise<any> {
+  return json(
+    `https://api.github.com/repos/${owner}/${repository}/issues/${number}`
+  )
+}

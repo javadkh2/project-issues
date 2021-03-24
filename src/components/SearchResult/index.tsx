@@ -26,10 +26,12 @@ export default function SearchResult({
     <div>
       <ResultTitle>Result</ResultTitle>
       <IssuesWrapper>
-        {issues.map(({ title, id }) => (
-          <IssueWrapper key={id}>
-            <Link href={`/${owner}/${repository}/${id}`}>
-              <Anchor href={`/${owner}/${repository}/${id}`}>{title}</Anchor>
+        {issues.map(({ title, number }) => (
+          <IssueWrapper key={number}>
+            <Link href={`/${owner}/${repository}/${number}`}>
+              <Anchor href={`/${owner}/${repository}/${number}`}>
+                {title}
+              </Anchor>
             </Link>
           </IssueWrapper>
         ))}
