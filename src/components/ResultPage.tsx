@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Layout from './Layout'
 import SearchForm from './SearchForm'
+import get from 'lodash/get'
 
 type Props = {
   filter?: 'all' | 'open' | 'closed'
@@ -39,9 +40,9 @@ export const ResultPage = ({
 
 // because we use this fn in deferent pages so I make it a bit general by partially pass some default props to it
 export const getResultPageProps = (defaultProps = {}) =>
-  async function getServerSideProps({
-    params: { owner, repository },
-  }): Promise<{ props: Props }> {
+  async function getServerSideProps(context): Promise<{ props: Props }> {
+    const owner = get(context, 'params.owner', '')
+    const repository = get(context, 'params.repository', '')
     return {
       props: { ...defaultProps, owner, repository },
     }
