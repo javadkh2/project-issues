@@ -42,13 +42,15 @@ export const SearchPage = ({
         }}
       />
 
-      {error ? (
+      {error && (
         <Part>
           <Error align="left">
             Error in fetching date (status-code: {error})
           </Error>
         </Part>
-      ) : (
+      )}
+
+      {issues && (
         <SearchResult
           owner={owner}
           repository={repository}
