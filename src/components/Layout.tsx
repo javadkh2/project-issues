@@ -1,10 +1,11 @@
 import styled from 'styled-components'
-import colors from '../config/colors'
+import { colors } from '../config/style'
 
 const Layout = styled.div`
-  max-width: 1400px;
+  font-family: 'Roboto';
+  max-width: 800px;
   margin: 0 auto;
-  background: ${colors.light};
+  background: ${colors.ultraLight};
   padding: 10px;
 `
 

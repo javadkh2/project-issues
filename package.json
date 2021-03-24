@@ -26,6 +26,7 @@
     ]
   },
   "dependencies": {
+    "@fontsource/roboto": "^4.2.2",
     "next": "latest",
     "normalize.css": "^8.0.1",
     "react": "^17.0.1",

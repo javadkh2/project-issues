@@ -1,4 +1,5 @@
 import 'normalize.css'
+import '@fontsource/roboto/index.css'
 
 type Props = {
   Component: React.ComponentType<any>
