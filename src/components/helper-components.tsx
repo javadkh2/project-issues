@@ -29,3 +29,8 @@ export const Anchor = styled.a`
   color: ${colors.secondary};
   text-decoration: underline;
 `
+
+export const Content = styled.div`
+  opacity: ${({ loading }) => (loading ? 0.7 : 1)};
+  transition: opacity 0.1s 0.2s;
+`

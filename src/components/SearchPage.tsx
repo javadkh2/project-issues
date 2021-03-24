@@ -1,9 +1,10 @@
 import get from 'lodash/get'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { useState } from 'react'
 import { getIssues } from '../services/github'
 import { Filter } from '../type'
-import { Error, Part } from './helper-components'
+import { Error, Part, Content } from './helper-components'
 import Layout from './Layout'
 import SearchForm from './SearchForm'
 import SearchResult from './SearchResult'
@@ -26,8 +27,10 @@ export const SearchPage = ({
   error,
 }: Props): JSX.Element => {
   const router = useRouter()
+  const [loading, setLoading] = useState(false)
   const defaultValue = owner && repository && `${owner}/${repository}`
   const page = Number.parseInt(get(router, 'query.page', '1'))
+
   return (
     <Layout>
       <Head>
@@ -38,29 +41,34 @@ export const SearchPage = ({
         defaultValue={defaultValue}
         defaultFilter={filter}
         onSubmit={(value, filter) => {
+          setLoading(true)
           router.push(`/${value}/${filter}?page=1`)
+          router.events.on('routeChangeComplete', () => setLoading(false))
         }}
       />
+      <Content loading={loading}>
+        {error && (
+          <Part>
+            <Error align="left">
+              Error in fetching date (status-code: {error})
+            </Error>
+          </Part>
+        )}
 
-      {error && (
-        <Part>
-          <Error align="left">
-            Error in fetching date (status-code: {error})
-          </Error>
-        </Part>
-      )}
-
-      {issues && (
-        <SearchResult
-          owner={owner}
-          repository={repository}
-          issues={issues}
-          page={page}
-          onPaginate={(newPage) => {
-            router.push(`/${owner}/${repository}/${filter}?page=${newPage}`)
-          }}
-        />
-      )}
+        {issues && (
+          <SearchResult
+            owner={owner}
+            repository={repository}
+            issues={issues}
+            page={page}
+            onPaginate={(newPage) => {
+              setLoading(true)
+              router.push(`/${owner}/${repository}/${filter}?page=${newPage}`)
+              router.events.on('routeChangeComplete', () => setLoading(false))
+            }}
+          />
+        )}
+      </Content>
     </Layout>
   )
 }
