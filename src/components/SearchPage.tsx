@@ -4,8 +4,8 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { getIssues } from '../services/github'
 import { Filter } from '../type'
-import { Error, Part, Content } from './helper-components'
-import Layout from './Layout'
+import { Error, Part, Content, SearchFormSection } from './helper-components'
+import Layout, { Section } from './Layout'
 import SearchForm from './SearchForm'
 import SearchResult from './SearchResult'
 
@@ -37,42 +37,50 @@ export const SearchPage = ({
         <title>{filter}</title>
       </Head>
 
-      <SearchForm
-        defaultValue={defaultValue}
-        defaultFilter={filter}
-        onSubmit={(value, filter) => {
-          if (!loading) {
-            setLoading(true)
-            router.push(`/${value}/${filter}?page=1`)
-            router.events.on('routeChangeComplete', () => setLoading(false))
-          }
-        }}
-      />
-      <Content className={loading && 'loading'}>
-        {error && (
-          <Part>
-            <Error align="left">
-              Error in fetching date (status-code: {error})
-            </Error>
-          </Part>
-        )}
+      <SearchFormSection>
+        <SearchForm
+          defaultValue={defaultValue}
+          defaultFilter={filter}
+          onSubmit={(value, filter) => {
+            if (!loading) {
+              setLoading(true)
+              router.push(`/${value}/${filter}?page=1`)
+              router.events.on('routeChangeComplete', () => setLoading(false))
+            }
+          }}
+        />
+      </SearchFormSection>
+      <Section>
+        <Content className={loading && 'loading'}>
+          {error && (
+            <Part>
+              <Error align="left">
+                Error in fetching date (status-code: {error})
+              </Error>
+            </Part>
+          )}
 
-        {issues && (
-          <SearchResult
-            owner={owner}
-            repository={repository}
-            issues={issues}
-            page={page}
-            onPaginate={(newPage) => {
-              if (!loading) {
-                setLoading(true)
-                router.push(`/${owner}/${repository}/${filter}?page=${newPage}`)
-                router.events.on('routeChangeComplete', () => setLoading(false))
-              }
-            }}
-          />
-        )}
-      </Content>
+          {!error && issues && (
+            <SearchResult
+              owner={owner}
+              repository={repository}
+              issues={issues}
+              page={page}
+              onPaginate={(newPage) => {
+                if (!loading) {
+                  setLoading(true)
+                  router.push(
+                    `/${owner}/${repository}/${filter}?page=${newPage}`
+                  )
+                  router.events.on('routeChangeComplete', () =>
+                    setLoading(false)
+                  )
+                }
+              }}
+            />
+          )}
+        </Content>
+      </Section>
     </Layout>
   )
 }

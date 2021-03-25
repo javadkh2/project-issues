@@ -5,6 +5,7 @@ import {
   IssueWrapper,
   Pagination,
   ResultTitle,
+  ResultWrapper,
 } from './helper-components'
 
 type Props = {
@@ -23,7 +24,7 @@ export default function SearchResult({
   repository,
 }: Props): JSX.Element {
   return (
-    <div>
+    <ResultWrapper>
       <ResultTitle>Result</ResultTitle>
       <IssuesWrapper>
         {issues.map(({ title, number }) => (
@@ -59,6 +60,6 @@ export default function SearchResult({
           </Button>
         </Pagination>
       )}
-    </div>
+    </ResultWrapper>
   )
 }

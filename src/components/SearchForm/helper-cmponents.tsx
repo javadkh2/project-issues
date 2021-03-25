@@ -3,7 +3,7 @@ import { colors, size } from '../../config/style'
 
 export const Title = styled.h2`
   margin: 0;
-  margin: ${size(2)} 0;
+  margin-bottom: ${size(1)};
 `
 
 export const Input = styled.input`
@@ -12,21 +12,29 @@ export const Input = styled.input`
   flex: 1;
   outline: none;
   background: ${({ invalid }) => (invalid ? colors.danger : colors.white)};
+  border: solid 1px ${colors.light};
   &:hover,
   &:focus {
-    box-shadow: 0px 0px 1px ${colors.primary};
+    border: solid 1px ${colors.primary};
   }
 `
 
 export const Form = styled.form`
   color: ${colors.dark};
+  display: block;
+  padding: ${size(3)};
+  background: ${colors.white};
+  border-radius: ${size(0.5)};
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
 `
 
 export const SearchBarWrapper = styled.div`
   display: flex;
 `
 export const FilterWrapper = styled.div`
-  margin-top: ${size()};
+  margin-top: ${size(2)};
   display: flex;
 `
 const RadioButtonLabel = styled.label`

@@ -3,10 +3,13 @@ import { colors, size } from '../config/style'
 
 const Layout = styled.div`
   font-family: 'Roboto';
-  max-width: 800px;
-  margin: 0 auto;
-  background: ${colors.ultraLight};
-  padding: ${size()};
+  background: ${colors.white};
+`
+
+export const Section = styled.div`
+  padding: ${size(3)};
+  ${({ lightBackground }) =>
+    lightBackground && `background: ${colors.ultraLight};`}
 `
 
 export default Layout

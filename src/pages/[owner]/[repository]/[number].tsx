@@ -1,8 +1,8 @@
 import get from 'lodash/get'
 import Head from 'next/head'
 import Markdown from 'react-markdown'
-import { Error } from '../../../components/helper-components'
-import Layout from '../../../components/Layout'
+import { Card, Content, Error } from '../../../components/helper-components'
+import Layout, { Section } from '../../../components/Layout'
 import { getIssueItem } from '../../../services/github'
 
 type Props = {
@@ -26,18 +26,26 @@ export const IssueDetails = ({
         {owner}/{repository}/{number}
       </title>
     </Head>
-    {error && (
-      <Error align="center">Error in loading page (status-code: {error})</Error>
-    )}
-    {issue && (
-      <main>
-        <h1 className="title">{issue.title}</h1>
-        <h3 className="title">
-          {new Date(issue.created_at).toLocaleDateString()}
-        </h3>
-        <Markdown>{issue.body}</Markdown>
-      </main>
-    )}
+    <Section lightBackground>
+      <Content>
+        <Card>
+          {error && (
+            <Error align="left">
+              Error in loading page (status-code: {error})
+            </Error>
+          )}
+          {!error && issue && (
+            <main>
+              <h1 className="title">{issue.title}</h1>
+              <h3 className="title">
+                {new Date(issue.created_at).toLocaleDateString()}
+              </h3>
+              <Markdown>{issue.body}</Markdown>
+            </main>
+          )}
+        </Card>
+      </Content>
+    </Section>
   </Layout>
 )
 

@@ -16,8 +16,14 @@ export const IssueWrapper = styled.li`
   margin-bottom: ${size()};
   padding: ${size()};
   background: ${colors.white};
+  border: solid 1px ${colors.light};
   border-radius: ${size(0.5)};
 `
 export const ResultTitle = styled.h3`
   margin: ${size(2)} 0;
+`
+
+export const ResultWrapper = styled.div`
+  max-width: 1400px;
+  margin: 0 auto;
 `

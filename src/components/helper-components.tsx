@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { colors, size } from '../config/style'
+import { Section } from './Layout'
 
 export const Button = styled.button`
   background: ${({ secondary }) =>
@@ -21,6 +22,10 @@ export const Error = styled.p`
   }
 `
 
+export const SearchFormSection = styled(Section)`
+  background: ${colors.ultraLight};
+`
+
 export const Part = styled.div`
   margin-top: 10px;
 `
@@ -31,8 +36,15 @@ export const Anchor = styled.a`
 `
 
 export const Content = styled.div`
+  max-width: 1400px;
+  margin: 0 auto;
   &.loading {
     opacity: 0.5;
-    transition: opacity 0 0.2s;
+    transition: opacity 0s 0.2s;
   }
+`
+export const Card = styled.div`
+  background: white;
+  padding: 16px;
+  border-radius: 4px;
 `
