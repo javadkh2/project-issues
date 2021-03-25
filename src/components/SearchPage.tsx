@@ -41,12 +41,14 @@ export const SearchPage = ({
         defaultValue={defaultValue}
         defaultFilter={filter}
         onSubmit={(value, filter) => {
-          setLoading(true)
-          router.push(`/${value}/${filter}?page=1`)
-          router.events.on('routeChangeComplete', () => setLoading(false))
+          if (!loading) {
+            setLoading(true)
+            router.push(`/${value}/${filter}?page=1`)
+            router.events.on('routeChangeComplete', () => setLoading(false))
+          }
         }}
       />
-      <Content loading={loading}>
+      <Content className={loading && 'loading'}>
         {error && (
           <Part>
             <Error align="left">
@@ -62,9 +64,11 @@ export const SearchPage = ({
             issues={issues}
             page={page}
             onPaginate={(newPage) => {
-              setLoading(true)
-              router.push(`/${owner}/${repository}/${filter}?page=${newPage}`)
-              router.events.on('routeChangeComplete', () => setLoading(false))
+              if (!loading) {
+                setLoading(true)
+                router.push(`/${owner}/${repository}/${filter}?page=${newPage}`)
+                router.events.on('routeChangeComplete', () => setLoading(false))
+              }
             }}
           />
         )}

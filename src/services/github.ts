@@ -10,7 +10,7 @@ export function getIssues(
   const query = `?state=${state}&page=${page}&per_page=${perPage}`
   return json(
     `https://api.github.com/repos/${owner}/${repository}/issues${query}`
-  )
+  ).then((issues) => issues.map(({ title, number }) => ({ title, number })))
 }
 
 export function getIssueItem(

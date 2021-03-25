@@ -31,6 +31,8 @@ export const Anchor = styled.a`
 `
 
 export const Content = styled.div`
-  opacity: ${({ loading }) => (loading ? 0.7 : 1)};
-  transition: opacity 0.1s 0.2s;
+  &.loading {
+    opacity: 0.5;
+    transition: opacity 0 0.2s;
+  }
 `
