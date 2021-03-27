@@ -63,6 +63,7 @@ export const RadioButton = ({
 }: RadioButtonProps): JSX.Element => (
   <RadioButtonLabel>
     <RadioButtonInput
+      data-testid={`filter-${value}`}
       type="radio"
       name={name}
       value={value}

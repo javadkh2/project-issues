@@ -9,7 +9,7 @@ import Layout, { Section } from './Layout'
 import SearchForm from './SearchForm'
 import SearchResult from './SearchResult'
 
-type Props = {
+export type Props = {
   filter?: Filter
   owner?: string
   repository?: string

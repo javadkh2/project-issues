@@ -47,4 +47,5 @@ export const Card = styled.div`
   background: white;
   padding: 16px;
   border-radius: 4px;
+  color: ${colors.dark};
 `

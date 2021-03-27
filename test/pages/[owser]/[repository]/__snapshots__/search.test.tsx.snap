@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search page matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBwQ hWYzqR"
+  >
+    <div
+      class="sc-gsTCUz sc-eCssSg JMcbo kzlSGG"
+    >
+      <form
+        class="sc-kEjbxe ePsUPp"
+        data-testid="search-form"
+      >
+        <h2
+          class="sc-pFZIQ hqtqKX"
+        >
+          Enter a repository name
+        </h2>
+        <div
+          class="sc-iqHYGH iOKKCK"
+        >
+          <input
+            class="sc-jrAGrp cNbLFC"
+            data-testid="search-input"
+            name="search"
+            type="search"
+            value="testOwner/testRepo"
+          />
+          <button
+            class="sc-dlfnbm bzkdEC"
+            type="submit"
+          >
+            Search
+          </button>
+        </div>
+        <div
+          class="sc-crrsfI uehok"
+        >
+          <label
+            class="sc-dQppl jtovBD"
+          >
+            <input
+              checked=""
+              class="sc-bqyKva haKmlc"
+              data-testid="filter-all"
+              name="filter"
+              type="radio"
+              value="all"
+            />
+            All
+          </label>
+          <label
+            class="sc-dQppl jtovBD"
+          >
+            <input
+              class="sc-bqyKva haKmlc"
+              data-testid="filter-open"
+              name="filter"
+              type="radio"
+              value="open"
+            />
+            Open
+          </label>
+          <label
+            class="sc-dQppl jtovBD"
+          >
+            <input
+              class="sc-bqyKva haKmlc"
+              data-testid="filter-closed"
+              name="filter"
+              type="radio"
+              value="closed"
+            />
+            Closed
+          </label>
+        </div>
+      </form>
+    </div>
+    <div
+      class="sc-gsTCUz JMcbo"
+    >
+      <div
+        class="sc-iBPRYJ eyuLIv"
+      >
+        <div
+          class="sc-bkzZxe jKmGt"
+        >
+          <h3
+            class="sc-fFubgz JXLqh"
+          >
+            Result
+          </h3>
+          <ul
+            class="sc-hBEYos bjWzlg"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

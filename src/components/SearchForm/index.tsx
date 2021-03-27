@@ -11,7 +11,7 @@ import {
 
 import { Button, Error } from '../helper-components'
 
-type Props = {
+export type Props = {
   defaultValue?: string
   className?: string
   defaultFilter?: Filter
@@ -49,6 +49,7 @@ export default function SearchForm({
 
   return (
     <Form
+      data-testid="search-form"
       onSubmit={(e) => {
         e.preventDefault()
         submit(value, filter)
@@ -57,6 +58,7 @@ export default function SearchForm({
       <Title>Enter a repository name</Title>
       <SearchBarWrapper>
         <Input
+          data-testid="search-input"
           invalid={!isValid}
           type="search"
           name="search"
