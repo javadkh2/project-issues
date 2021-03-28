@@ -49,3 +49,12 @@ export const Card = styled.div`
   border-radius: 4px;
   color: ${colors.dark};
 `
+
+export const BackLink = styled.button`
+  border: none;
+  background: none;
+  text-decoration: underline;
+  color: ${colors.secondary};
+  margin-bottom: ${size(2)};
+  cursor: pointer;
+`
