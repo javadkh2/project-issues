@@ -14,6 +14,7 @@ describe('Issue page', () => {
         body: 'issue body',
       },
       error: undefined,
+      showBack: false,
     }
     const { getByText } = render(<IssueDetails {...props} />, {})
     expect(getByText(props.issue.title)).toBeTruthy()
